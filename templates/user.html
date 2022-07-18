@@ -3,8 +3,10 @@
 {% block title %}{{user.full_name}}{% endblock %}
 
 {% block content %}
-    <h1>{{user.full_name}}</h1><img id="profile_img" src="{{user.image_url}}">
-    
+    <h1>{{user.full_name}}</h1>
+    {% if user.image_url %}
+        <img id="profile_img" src="{{user.image_url}}">
+    {% endif %}
     <form>
         <button class="btn btn-primary m-2" formmethod="get" formaction="/users/{{user.id}}/edit">Edit</a>
         <button formmethod="post" formaction="/users/{{user.id}}/delete" class="btn btn-danger m-2">Delete</button>
