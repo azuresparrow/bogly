@@ -52,6 +52,11 @@ class Post(db.Model):
                     nullable=False, 
                     default=datetime.utcnow)
     user_id = db.Column(db.Integer,
-                    db.ForeignKey('users.id'))
+                    db.ForeignKey('users.id', ondelete='CASCADE'))
+
+    @property
+    def created_f(self):
+        return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
+
 
     user = db.relationship('User', back_populates='posts')

@@ -2,7 +2,7 @@
     <label for="title">Title</label>
     <input type="text" id="title" name="title" autocomplete="off" {% if post is defined %} value="{{post.title}}" {% endif %}>
     <label for="content">Content</label>
-    <textarea autocomplete="off" name="content" {% if post is defined %} value="{{post.content}}" {% endif %}></textarea>
+    <textarea autocomplete="off" name="content">{% if post is defined %}{{post.content}} {% endif %}</textarea>
     <input type="submit" value="{{submit}}" class="btn btn-success">
     <a class="btn btn-outline-primary" href="/users/{{user.id}}">Cancel</a>
 </form>
