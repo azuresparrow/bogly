@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+    <h1>Edit Post</h1>
+    {% with form_path='/posts/'~ post.id ~'/edit', submit='Save'%} 
+        {% include 'post_form.html' %}
+    {% endwith %}
+{% endblock %}

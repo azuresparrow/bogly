@@ -11,4 +11,9 @@
         <button class="btn btn-primary m-2" formmethod="get" formaction="/users/{{user.id}}/edit">Edit</a>
         <button formmethod="post" formaction="/users/{{user.id}}/delete" class="btn btn-danger m-2">Delete</button>
     </form>
+    <h3>Posts</h3>
+    {% for post in user.posts %}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+    {% endfor %}
+    <a class="btn btn-primary" href="/users/{{user.id}}/posts/new">Add Post</a>
 {% endblock %}

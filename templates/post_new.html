@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+    <h1>Add Post for {{user.full_name}}</h1>
+    {% with form_path='/users/' ~ user.id ~ '/posts/new', submit='Add'%} 
+        {% include 'post_form.html' %}
+    {% endwith %}
+{% endblock %}

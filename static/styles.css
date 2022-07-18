@@ -13,3 +13,8 @@ body {
 form input {
     margin:1em 0;
 }
+
+textarea {
+    width:400px;
+    height:200px;
+}
