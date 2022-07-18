@@ -1,0 +1,15 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#profile_img { 
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    float:left;
+    margin:1em;
+}
+
+form input {
+    margin:1em 0;
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Edit {{user.full_name}}{% endblock %}
+
+{% block content %}
+    <h1>Edit User</h1>
+    {% with form_path='/users/' ~ user.id ~ '/edit', submit='Save'%} 
+        {% include 'user_form.html' %}
+    {% endwith %}
+{% endblock %}

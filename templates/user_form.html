@@ -1,0 +1,10 @@
+<form class="col-2" action="{{form_path}}" method="post">
+    <label for="first_name">first name</label>
+    <input type="text" id="first_name" name="first_name" autocomplete="off" {% if user is defined %} value={{user.first_name}} {% endif %}>
+    <label for="last_name">last name</label>
+    <input type="text" autocomplete="off" name="last_name" {% if user is defined %} value={{user.last_name}} {% endif %}>
+    <label for="image_url">profile image url</label>
+    <input type="text" autocomplete="off" name="image_url" {% if user is defined %} value={{user.image_url}} {% endif %}>
+    <input type="submit" value="{{submit}}" class="btn btn-success">
+    {% if user is defined %}<a class="btn btn-outline-primary" href="/users/{{user.id}}">Cancel</a>{% endif %}
+</form>
