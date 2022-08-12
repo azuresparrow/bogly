@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Create Tag{% endblock %}
+
+{% block content %}
+    <h1>Edit a tag</h1>
+    {% with form_path='/tags/'~ tag.id ~'/edit', submit='Save'%} 
+        {% include 'tag_form.html' %}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Tag{% endblock %}
+
+{% block content %}
+    <h1>Create a tag</h1>
+    {% with form_path='/tags/new', submit='Add'%} 
+        {% include 'tag_form.html' %}
+    {% endwith %}
+{% endblock %}

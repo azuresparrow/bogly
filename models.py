@@ -4,10 +4,12 @@ from datetime import datetime
 db = SQLAlchemy()
 
 def connect_db(app):
+    """Establishes the connection"""
     db.app = app
     db.init_app(app)
 
 class User(db.Model):
+    """Users can create posts and give them tags"""
     __tablename__ = 'users'
 
     def __repr__(self):
@@ -33,6 +35,7 @@ class User(db.Model):
     
 
 class Post(db.Model):
+    """Posts have a title and content and can be tied to tags"""
     __tablename__ = 'posts'
 
     def __repr__(self):
@@ -60,3 +63,21 @@ class Post(db.Model):
 
 
     user = db.relationship('User', back_populates='posts')
+
+class Tag(db.Model):
+    """Tags in the pool"""
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+    name = db.Column(db.Text, nullable = False, unique = True)
+    posts = db.relationship('Post', secondary='posts_tags', cascade="all,delete", backref="tags")
+
+class PostTag(db.Model):
+    """Connects tags to posts"""
+    __tablename__ = 'posts_tags'
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key = True)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key = True)
+
+

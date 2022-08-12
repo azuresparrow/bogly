@@ -1,0 +1,6 @@
+<form class="col-2" action="{{form_path}}" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" autocomplete="off" placeholder="Enter a name for the tag" {% if tag is defined %} value="{{tag.name}}" {% endif %}>
+    <a class="btn btn-outline-primary" href="/tags">Cancel</a>
+    <input type="submit" value="{{submit}}" class="btn btn-success">
+</form>

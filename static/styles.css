@@ -18,3 +18,12 @@ textarea {
     width:400px;
     height:200px;
 }
+
+ .tag {
+    background-color: teal;
+    text-decoration: none;
+    color:white;
+    border-radius: 5px;
+    padding:3px;
+    margin:5px;
+}
